@@ -1,20 +1,12 @@
 
-0、Java的作用、Java与大数据
-
-1、JDK 1.7 安装、环境变量配置，Tomcat（缓）
-2、Eclipse 安装与使用、sublime
-3、Maven安装与配置
-4、Git安装、Github账号申请、Github clone&commit
-
-5、MySQL的安装与使用，server&client分别安装
-6、--> Hello World 
+1、Java的作用、Java与大数据
+2、搭建环境
+3、--> Hello World 
   --> 用户管理系统（HTML5 + JS + CSS + JAVA + MySQL）
-7、引入框架 JQuery + Spring + Hibernate
-8、TSS框架
+4、引入框架 JQuery + Spring + Hibernate
+5、TSS框架
 
-debug代码的能力
-
-知其然，知其所以然
+知其然，知其所以然；
 实践出真知
 
 进阶：
