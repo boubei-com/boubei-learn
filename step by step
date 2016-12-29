@@ -1,9 +1,11 @@
 
 0、Java的作用、Java与大数据
-1、JDK 1.7 安装、环境变量配置
+
+1、JDK 1.7 安装、环境变量配置，Tomcat（缓）
 2、Eclipse 安装与使用、sublime
 3、Maven安装与配置
 4、Git安装、Github账号申请、Github clone&commit
+
 5、MySQL的安装与使用，server&client分别安装
 6、--> Hello World 
   --> 用户管理系统（HTML5 + JS + CSS + JAVA + MySQL）
@@ -20,3 +22,9 @@ debug代码的能力
 2、Hadoop Spark
 3、系统运维（性能、安全......）
 4、linux 鸟哥linux私房器
+
+0、putty
+1、Eclipse重新下载 win_64 4.2.2, 风格改成classic（Prefermance-->General-->Appearance 主题设置）
+2、
+
+
