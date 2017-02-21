@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>flexbox布局</title>
+ 
+    <style type="text/css">
+        body, body * {
+            margin:0 auto;
+            padding:0;
+        }
+        .container { 
+            display: -webkit-flex;
+            display: flex;
+        }
+        .elem {
+            position:relative;
+            border:solid  #6AC5AC 3px;
+            box-sizing:border-box;
+        }
+        nav {
+            width:25%;
+            height: 400px;
+        }
+        section {
+            height: 200px;
+        }
+ 
+        .flex-column {
+            -webkit-flex: 1;
+            flex:1;
+        }
+
+
+        .initial {
+          -webkit-flex: initial;
+                  flex: initial;
+          width: 200px;
+          min-width: 100px;
+        }
+        .none {
+          -webkit-flex: none;
+                  flex: none;
+          width: 200px;
+        }
+        .flex1 {
+          -webkit-flex: 1;
+                  flex: 1;
+        }
+        .flex2 {
+          -webkit-flex: 2;
+                  flex: 2;
+        }
+
+    </style>
+
+</head>
+<body>
+    <div class="container clearfix">
+        <nav class="elem">nav</nav>
+        <div class="flex-column">
+            <section class="elem">section1</section>
+            <section class="elem">
+                <pre>
+    Flexbox布局（Flexible Box)模块旨在提供一个更加有效的方式制定、调整和分布一个容器里的项目布局，即使他们的大小是未知或者是动态的。
+    Flex布局主要思想是让容器有能力让其子项目能够改变其宽度、高度(甚至顺序),以最佳方式填充可用空间（主要是为了适应各种大小的屏幕）。
+    Flex容器会使子项目（伸缩项目）扩展来填满可用空间，或缩小他们以防止溢出容器。
+    注：Flexbox布局最适合应用程序的组件和小规模的布局，而网格布局更适合那些更大规模的布局。
+                </pre>
+            </section>
+        </div>
+    </div>
+
+<br>
+
+    <div class="container elem">
+      <section class="elem initial">
+        <span class="label">&lt;div class="initial"></span>
+        <p>
+          空间足够的时候，我的宽度是200px，如果空间不足，我会变窄到100px，但不会再窄了。
+        </p>
+        <span class="endlabel">&lt;/div></span>
+      </section>
+
+      <section class="elem none">
+        <span class="label">&lt;div class="none"></span>
+        <p>
+          无论窗口如何变化，我的宽度一直是200px。
+        </p>
+        <span class="endlabel">&lt;/div></span>
+      </section>
+
+      <section class="elem flex1">
+        <span class="label">&lt;div class="flex1"></span>
+        <p>
+          我会占满剩余宽度的1/3。
+        </p>
+        <span class="endlabel">&lt;/div></span>
+      </section>
+
+      <section class="elem flex2">
+        <span class="label">&lt;div class="flex2"></span>
+        <p>
+          我会占满剩余宽度的2/3。
+        </p>
+        <span class="endlabel">&lt;/div></span>
+      </section>
+
+    </div>
+
+</body>
+</html>

@@ -1,0 +1,241 @@
+<!doctype html>
+<html>
+<head>
+	<meta charSet="utf-8">
+
+	<style type="text/css">
+		body {
+		    background-image: url(data:image/png;base64,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);
+		    background-color: #111111;
+		}
+
+		#main {
+		  max-width: 600px; /* max-width保证当浏览器窗口小于600时，不会出现横向滚动条。这一点在移动设备尤为重要 */
+		  height: 600px;
+		  color: #fff;
+		  margin: 0 auto;  /* 居中 */
+		  background-color: black;
+
+		  /* 圆角 */
+		  -webkit-border-radius: 4px 3px 6px 10px;
+	      -moz-border-radius: 4px 3px 6px 10px;
+	      -o-border-radius: 4px 3px 6px 10px;
+	      border-radius: 4px 3px 6px 10px;
+		}
+
+		.simple {
+		  width: 500px;
+		  height: 100px;
+		  margin: 20px auto;
+		  border: solid red 1px;
+		  -webkit-box-sizing: border-box;
+		     -moz-box-sizing: border-box;
+		          box-sizing: border-box; /* border-box: 内边距和边框不再会增加它的宽度 */
+		}
+
+		.fancy {
+		  width: 500px;
+		   height: 100px;
+		  margin: 20px auto;
+		  padding: 100px;
+		  border: solid blue 10px;
+		  -webkit-box-sizing: border-box;
+		     -moz-box-sizing: border-box;
+		          box-sizing: border-box;
+		}
+
+/* fork me on github start */
+		.ribbon {
+		  background-color: #a00;
+		  overflow: hidden;
+		  white-space: nowrap;
+		  /* top left corner */
+		  position: absolute;
+		  left: -50px;
+		  top: 40px;
+		  /* 45 deg ccw rotation */
+		  -webkit-transform: rotate(-45deg);
+		     -moz-transform: rotate(-45deg);
+		      -ms-transform: rotate(-45deg);
+		       -o-transform: rotate(-45deg);
+		          transform: rotate(-45deg);
+		  /* shadow */
+		  -webkit-box-shadow: 0 0 10px #888;
+		     -moz-box-shadow: 0 0 10px #888;
+		          box-shadow: 0 0 10px #888;
+		}
+		.ribbon a {
+		  border: 1px solid #faa;
+		  color: #fff;
+		  display: block;
+		  font: bold 81.25% 'Helvetica Neue', Helvetica, Arial, sans-serif;
+		  margin: 1px 0;
+		  padding: 10px 50px;
+		  text-align: center;
+		  text-decoration: none;
+		  /* shadow */
+		  text-shadow: 0 0 5px #444;
+		}
+
+/* 气泡提示 start */
+		a[data-tooltip]:link, a[data-tooltip]:visited {
+			position: relative;
+			text-decoration: none;
+			border-bottom: solid 1px;
+		}
+
+		a[data-tooltip]:before {
+		  content: "";
+		  position: absolute;
+		  border-top: 20px solid #0090ff;
+		  border-left: 30px solid transparent;
+		  border-right: 30px solid transparent;
+		  visibility: hidden;
+		  top: -18px;
+		  left: -26px;
+		}
+
+		a[data-tooltip]:after {
+		  content: attr(data-tooltip);
+		  position: absolute;
+		  color: white;
+		  top: -35px;
+		  left: -26px;
+		  background: #0090ff;
+		  padding: 5px 15px;
+		  -webkit-border-radius: 10px;
+		  -moz-border-radius: 10px;
+		  border-radius: 10px;
+		  white-space: nowrap;
+		  visibility: hidden;
+		}
+
+		a[data-tooltip]:hover:before, a[data-tooltip]:hover:after {
+		  visibility: visible;
+		  -webkit-transition: visibility 0s linear .3s;
+		  -moz-transition: visibility 0s linear .3s;
+		  -o-transition: visibility 0s linear .3s;
+		  transition: visibility 0s linear .3s;
+		}
+/* 气泡提示 end */
+
+input[type=range] {
+  -webkit-appearance: none;
+  margin: 18px 0;
+  width: 90%;
+}
+input[type=range]:focus {
+  outline: none;
+}
+input[type=range]::-webkit-slider-runnable-track {
+  width: 100%;
+  height: 8.4px;
+  cursor: pointer;
+  animate: 0.2s;
+  box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
+  background: #3071a9;
+  border-radius: 1.3px;
+  border: 0.2px solid #010101;
+}
+input[type=range]::-webkit-slider-thumb {
+  box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
+  border: 1px solid #000000;
+  height: 36px;
+  width: 16px;
+  border-radius: 3px;
+  background: #ffffff;
+  cursor: pointer;
+  -webkit-appearance: none;
+  margin-top: -14px;
+}
+input[type=range]:focus::-webkit-slider-runnable-track {
+  background: #367ebd;
+}
+input[type=range]::-moz-range-track {
+  width: 100%;
+  height: 8.4px;
+  cursor: pointer;
+  animate: 0.2s;
+  box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
+  background: #3071a9;
+  border-radius: 1.3px;
+  border: 0.2px solid #010101;
+}
+input[type=range]::-moz-range-thumb {
+  box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
+  border: 1px solid #000000;
+  height: 36px;
+  width: 16px;
+  border-radius: 3px;
+  background: #ffffff;
+  cursor: pointer;
+}
+input[type=range]::-ms-track {
+  width: 100%;
+  height: 8.4px;
+  cursor: pointer;
+  animate: 0.2s;
+  background: transparent;
+  border-color: transparent;
+  border-width: 16px 0;
+  color: transparent;
+}
+input[type=range]::-ms-fill-lower {
+  background: #2a6495;
+  border: 0.2px solid #010101;
+  border-radius: 2.6px;
+  box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
+}
+input[type=range]::-ms-fill-upper {
+  background: #3071a9;
+  border: 0.2px solid #010101;
+  border-radius: 2.6px;
+  box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
+}
+input[type=range]::-ms-thumb {
+  box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
+  border: 1px solid #000000;
+  height: 36px;
+  width: 16px;
+  border-radius: 3px;
+  background: #ffffff;
+  cursor: pointer;
+}
+input[type=range]:focus::-ms-fill-lower {
+  background: #3071a9;
+}
+input[type=range]:focus::-ms-fill-upper {
+  background: #367ebd;
+}
+ 
+	</style>
+
+</head>
+<body>
+
+	<div id="main">
+		<div class="simple "></div>
+		<div class="fancy "></div>
+	</div>
+
+	<div class="ribbon">
+	  <a href="#">Fork me on GitHub</a>
+	</div>
+
+	<h2 class="demo-header">Pure CSS Tooltips</h2>
+
+<input type="range" min="0" max="50" value="0" step="1" onchange="showValue(this.value)" />
+<span id="range">0</span>
+<script type="text/javascript">
+function showValue(newValue)
+{
+	document.getElementById("range").innerHTML=newValue;
+}
+</script>
+
+	<p class="tt">Lorem ipsum dolor sit amet <a href="#" data-tooltip="This is a pure CSS tooltip">hover over this link</a> elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+
+	<p class="tt">Lorem ipsum dolor sit amet elit, sed do eiusmod tempor <a href="#" data-tooltip="This is a pure CSS tooltip">hover over this link</a> incididunt ut labore et dolore magna aliqua ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+
+</body>
+</html>

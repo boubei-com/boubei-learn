@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<htm>
+<head>
+  	<meta charset="UTF-8">
+    <title>diamond</title>
+ 
+    <style type="text/css">
+
+.base{
+	border:64px solid;
+	border-color:#67B2E4 transparent rgba(105,185,238,.50) transparent;
+	height:0;
+	margin:20% auto;
+	position:relative;
+	width:0;
+}
+
+.base:after,
+.base:before,
+.angle,
+.angle:after,
+.angle:before,
+.shade{
+	height:0;
+	position:absolute;
+	width:0;
+}
+.base:after,
+.base:before,
+.angle:after,
+.angle:before{
+	content:"";
+	z-index:-1;
+}
+
+.base:after{
+	border-bottom:64px solid #3498DB;
+	border-left:64px solid transparent;
+	border-right:64px solid transparent;
+	left:-128px;
+	bottom:0;
+	width:128px;
+}
+
+.base:before{
+	border:128px solid;
+	border-color:#A3D1EF transparent transparent;
+	left:-128px;
+}
+
+.angle{
+	border:64px solid;
+	border-color:transparent transparent rgba(255,255,255,.40);
+	left:-64px;
+	top:-128px;
+	z-index:0;
+}
+.angle:after{
+	border:128px solid;
+	border-color:rgba(54,156,224,.50) transparent transparent;
+	left:-128px;
+	top:64px;
+	-webkit-transform:scaleX(.5);
+}
+.angle:before{
+	background-color:#000;
+	border-radius:50%;
+	-webkit-filter:blur(12px);
+	height:12px;
+	left:-32px;
+	top:192px;
+	-webkit-transform:scaleY(.5);
+	width:64px;
+	z-index:-1;
+}
+ 	</style>
+</head>
+
+<body>
+ 
+<div class="base">
+    <div class="angle"></div>
+</div>
+
+</body>
+</html>

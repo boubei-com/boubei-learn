@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Position布局</title>
+ 
+    <style type="text/css">
+         body {
+            margin-bottom: 120px; 
+         }
+         .container {
+            position: relative;
+            border: 1px solid #ccc;
+            height: 500px;
+         }
+         nav {
+            position: absolute;
+            left: 0px;
+            width: 200px;
+            height: 100%;
+            background-color: red;
+         }
+         section {
+            margin-left: 200px;
+            height: 250px;
+         }
+         footer {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            height: 70px;
+            width: 100%;
+            background: black;
+            color: white;
+         }
+         .box {
+            float: left;
+            width: 500px;
+            height: 100px;
+            margin: 1em;
+            background-color: yellow;
+         }
+         .after-box {
+            clear: left;
+         }
+
+    </style>
+
+</head>
+<body>
+    <div class="box">float box:使用 clear 我们就可以将这个段落移动到浮动元素 div 下面。你需要用 left 值才能清除元素的向左浮动。
+        你还可以用 right 或 both 来清除向右浮动或同时清除向左向右浮动。</div>
+    <div class="container after-box">
+        <nav>nav</nav>
+        <section>section1</section>
+        <section>section2</section>
+        <footer>footer</footer>
+    </div>
+
+</body>
+</html>

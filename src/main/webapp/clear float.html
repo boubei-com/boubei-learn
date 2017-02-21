@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Demo</title>
+  <style type="text/css">
+    html, body { padding: 0; margin: 0; }
+    ul { margin: 0; padding: 0; } 
+  
+    .clearfix:after {
+      content: " ";
+      display: block;
+      clear: both;
+      height: 0;
+    }
+	.clearfix {
+	  zoom: 1;
+	  display: table;
+	}
+  
+    .left-col {
+      background: red;
+      float: left;
+      width: 100px;
+      height: 250px;
+    }
+    .right-col {
+      margin-left: 100px;
+    }
+    .menu {
+      border: 1px solid #000;
+    }
+    .menu li {
+      float: left;
+      display: block;
+      padding: 0 1em;
+      margin: 0 1em 0 0;
+      background: #ccc;
+    }
+    .placeholder {
+      background: yellow;
+      height: 300px;
+    }
+  </style>
+</head>
+<body>
+  <div class="left-col">
+  </div>
+  <div class="right-col">
+    <ul class="menu clearfix">
+      <li>Menu Item</li>
+      <li>Menu Item</li>
+      <li>Menu Item</li>
+      <li>Menu Item</li>
+      <li>Menu Item</li>
+      <li>Menu Item</li>
+    </ul>
+    <div class="placeholder"></div>
+  </div>
+
+
+  <p style="float:left;width :100px;">这个是第1列，</p>
+<p style="float:left;width :400px;">这个是第2列，</p>
+<p style="clear:both;">这个是列的下面。</p>
+</body>
+</html>

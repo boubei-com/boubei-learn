@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>判断鼠标进入方向, 和移动方向</title>
+</head>
+<body>
+<style>
+ 
+#wrap { width:300px;height:300px;background:#33aa00; margin:150px; font-size:50px;text-align:center;line-height:300px;}
+
+</style>
+<div id="wrap">
+   方向反馈
+</div>
+在画面上下左右您就知道。<br>
+
+<script>
+    var wrap = document.getElementById('wrap');
+    var hoverDir = function(e){
+        var w=wrap.offsetWidth;
+        var h=wrap.offsetHeight;
+        var x=(e.clientX - wrap.offsetLeft - (w / 2)) * (w > h ? (h / w) : 1);
+        var y=(e.clientY - wrap.offsetTop - (h / 2)) * (h > w ? (w / h) : 1);
+        var direction = Math.round((((Math.atan2(y, x) * (180 / Math.PI)) + 180) / 90) + 3) % 4;
+        var dirName = new Array('上方','右侧','下方','左侧');
+        
+        var eventType = e.type;
+        if(e.type == 'mouseover' || e.type == 'mouseenter'){
+            wrap.innerHTML=dirName[direction]+'进入';
+        }else{
+            wrap.innerHTML=dirName[direction]+'离开';
+        }
+    }
+     
+    wrap.addEventListener('mouseover',hoverDir,false);
+    wrap.addEventListener('mouseout',hoverDir,false);
+ 
+</script>
+
+
+<SCRIPT LANGUAGE="JavaScript">
+    var x, y, xold, yold, xdiff, ydiff;
+    var dir = [];
+    dir[0]="n-resize";   <!--表示向北的方向-->
+    dir[1]="ne-resize";  <!--表示向东北的方向-->
+    dir[2]="e-resize";   <!--表示向东的方向-->
+    dir[3]="se-resize";  <!--表示向东南的方向-->
+    dir[4]="s-resize";   <!--表示向南的方向-->
+    dir[5]="sw-resize";  <!--表示向西南的方向-->
+    dir[6]="w-resize";   <!--表示向西的方向-->
+    dir[7]="nw-resize";  <!--表示向西北的方向-->
+
+    document.onmousemove = FindXY; <!--鼠标移动后，调用函数findxy-->
+
+    function display(direction) {
+        console.log(dir[direction]);
+        document.body.style.cursor = dir[direction]; <!--显示鼠标形状-->
+    }
+
+    function FindXY() {
+        x = event.clientX; <!--获得当前鼠标的横坐标-->
+        y = event.clientY; <!--获得当前鼠标的纵坐标-->
+        xdiff = x - xold;  <!--获得横坐标的偏移量-->
+        ydiff = y - yold;  <!--获得纵坐标的偏移量-->
+
+        if ((xdiff <  2) && (ydiff < -2)) display(0); <!--如果x方向上的偏移小于2，y方向上的偏移大于-2，表示移动方向向北-->
+        if ((xdiff <  2) && (ydiff >  2)) display(4); <!--如果x方向上的偏移小于2，y方向上的偏移大于2，表示移动方向向南-->
+        if ((xdiff >  2) && (ydiff <  2)) display(2); <!--如果x方向上的偏移大于2，y方向上的偏移小于2，表示移动方向向东-->
+        if ((xdiff < -2) && (ydiff <  2)) display(6); <!--如果x方向上的偏移小于-2，y方向上的偏移小于2，表示移动方向向西-->
+        if ((xdiff >  2) && (ydiff >  2)) display(3); <!--如果x方向上的偏移大于2，y方向上的偏移大于2，表示移动方向向东南-->
+        if ((xdiff >  2) && (ydiff < -2)) display(1); <!--如果x方向上的偏移大于2，y方向上的偏移小于-2，表示移动方向向东北-->
+        if ((xdiff < -2) && (ydiff >  2)) display(5); <!--如果x方向上的偏移小于-2，y方向上的偏移大于2，表示移动方向向西南-->
+        if ((xdiff < -2) && (ydiff < -2)) display(7); <!--如果x方向上的偏移小于-2，y方向上的偏移小于-2，表示移动方向向西北-->
+
+        xold = x; <!--更新x的坐标-->
+        yold = y; <!--更新y的坐标-->
+    }
+</script>
+
+</body>
+</html>

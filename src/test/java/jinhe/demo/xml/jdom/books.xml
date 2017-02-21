@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<collection>
+  <book id="t41">
+    <title>J2EE1.4应用手册</title>
+    <length>158</length>
+    <author>hellking</author>
+    <author>asiapower</author>
+    <author>ya qiang chen</author>
+    
+  </book>
+  <book id="t42">
+    <title>thinking in java</title>
+    <length>888</length>
+    <title>jinpujun</title>
+    <length>jinpujun</length>
+    <author>aya</author>
+    <author>ada</author>
+  </book>
+</collection>
+

@@ -1,0 +1,58 @@
+×××××××××××××××××××××××××××××××××××××××××××××××××××××××配置××××××××××××××××××××××××××××××××××××××××××××××××××××××××
+环境Win2000AdvancedServer + Sun ONE Directory Server 5.2 + JDK1.4.2 
+Directory Server, 和JDK可以到Sun的网站上去下载。 
+Directory Server的安装： 
+首先用鼠标右键单击我的电脑->属性->网络标识->属性 
+这里可以看到计算机名，我的计算机名为acer。 点击其他，将此计算机的主DNS后缀栏为输入com然后点击确定。 
+这是可以看到完整的计算机名称：acer.com。接下来重新启动计算机。 启动完成后就可以安装Directory Server了。 
+
+以下是安装过程中我的Directory Server的一些配置。 
+Fully Qualified Computer Name: acer.com 
+
+Server Identifier: acer 
+Server Port: 64150 
+Suffix: dc=com 
+
+admin id: admin 
+admin pwd: admin 
+
+Administration Domain: com 
+
+Directory Manager Settings: 
+Directory Manager DN: cn=Directory Manager 
+pwd: manager 
+Administration Port: 64151 
+
+到此完成了基本的配置。
+
+××××××××××××××××××××××××××××××××××××××××××××××××××××××××××程序说明×××××××××××××××××××××××××××××××××××××××××××××××××××××
+
+这只是个简单的用Java编写的针对LDAP应用的示例，有很多地方还没有涉及。比如，在这个例子中没有包括怎样查询过滤的信息。 
+
+应该注意LDAP的登录方式： 
+sasl_mech，none，simple。这个例子中使用的是simple，并登录到管理的DN。 
+
+以下是节点的类型的object class需要设置的属性 
+目录的object class: 
+top 
+domain 
+组织单元的object class: 
+top 
+organizationalunit 
+用户组的object class: 
+top 
+groupofuniquenames 
+用户的object class: 
+top 
+person 
+organizationalPerson 
+inetorgperson
+
+初学者容易犯一个错误,就是在增加组,和用户,组织 这些节点信息时容易只增加业务信息， 什么意思 
+也许你增加一个用户 ，你把workphone,cn(全名),sex,address ，都设好拉 
+可是一执行代码偏偏报告"schemaviolation'的错误 ，想拉半天,不会啊,也许是requried属性没加于是又加上那些required属性,
+可还是报告"schemaviolation'的错误 ，其实就是objectClass没加 
+我门用惯拉数据库的增加方式:em11: 它那就只用关心实际的业务,不会让你去当心什么yig objectClass这样一个系统属性 
+所以学的时候虽然知道有objectClass这个东东 ，可是一用起来还是用操作数据库的思维在行事 
+这应该也是一个小小的注意点把
+

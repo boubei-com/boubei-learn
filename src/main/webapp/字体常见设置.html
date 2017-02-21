@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+ 
+  <style>
+    #a { text-indent:15px; }
+    #b { text-indent:-6px; }
+    #c { text-indent:0.5em; }
+
+    #a:first-letter {
+      font-size:25px;
+      color:#B23AEE;
+      float:left;
+    }
+    #b:first-letter {
+      font-size:30px;
+      color:red;
+    }
+    #c:first-letter {
+      font-size:25px;
+      color:#B23AEE;
+    }
+
+    p.uppercase:first-letter {
+      text-transform:uppercase;
+    }
+
+    ::selection {
+      color:red;
+      background:#A9A9A9;
+    }
+
+    p.wordspacing { word-spacing:20px; }     /*  设置空格的长度*/
+    p.letterspacing { letter-spacing:20px; } /*  设置字间距*/
+    p.lineheight { line-height:0.3; }        /*  设置行间距*/
+
+    .overline { text-decoration: overline; }
+    .through  { text-decoration: line-through; }
+    .underline{ text-decoration: underline; }
+
+    .bold  { font-weight:bold; }
+    .italic{ font-style:italic; }
+
+    h1 { text-shadow: 5px 5px 5px #6600ff; }
+
+    div.elli{
+      border:1px solid;
+      overflow:hidden;   /*超出部分隐藏*/
+      white-space:nowrap;/*强制在一行显示*/
+      text-overflow:ellipsis;
+      width:200px;
+      height:20px;
+    }
+ 
+  </style>
+ </head>
+ <body>
+  <p id="a">
+    段落首字符下沉和15像素的缩进
+  </p>
+  <p id='b'>
+    if -首字符不下沉、首字符英文小写和悬挂缩进（-6像素）
+  </p>
+  <p class="uppercase" id='c'>
+    if 段落的首字符不下沉、首字母英文大写
+  </p>
+
+  <p class="wordspacing overline">控 制 空 格 的 长 度</p>
+  <p class="letterspacing through">控制相邻两个字的间距</p>
+  <p class="lineheight underline bold italic">使用百分比控制行间距</p>
+
+  <h1>文字的阴影效果</h1>
+
+  <div class="elli"><a href="#">如果此处的文字较多，将自动用省略号代替！</a></div>
+ 
+  <div style="transform:rotate(-90deg);width:200px;">这是一段旋转过的文字</div>
+
+ </body>
+</html>

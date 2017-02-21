@@ -1,0 +1,42 @@
+1、什么时候需要自定义ClassLoader？
+	答：大部分情况下，采用new 或 Class.forName(className).newInstance() 
+	或 Thread.currentThread().getContextClassLoader().loadClass(className) 都可以完成Class对象的装载。
+	但如果.class文件在网络上或者是加密过的，这时候就需要自己定义ClassLoader来装载该Class。
+
+2、Class.forName() 和 Thread.currentThread().getContextClassLoader().loadClass()是否总是一样？
+	答：在一个JVM中可能存在多个ClassLoader，每个ClassLoader拥有自己的NameSpace。
+	一个ClassLoader只能拥有一个class对象类型的实例，但是不同的ClassLoader可能拥有相同的class对象实例，这时可能产生致命的问题。
+	如ClassLoaderA，装载了类A的类型实例A1，而ClassLoaderB，也装载了类A的对象实例A2。逻辑上讲A1=A2，但是由于A1和A2来自于不同的ClassLoader，
+	它们实际上是完全不同的，如果A中定义了一个静态变量c，则c在不同的ClassLoader中的值是不同的。
+
+3、ClassLoader的工作原理?
+	答：每个运行中的线程都有一个成员contextClassLoader，用来在运行时动态地载入其它类
+	系统默认的contextClassLoader是systemClassLoader，所以一般而言java程序在执行时可以使用JVM自带的类、$JAVA_HOME/jre/lib/ext/中的类和$CLASSPATH/中的类
+	可以使用Thread.currentThread().setContextClassLoader(...);更改当前线程的contextClassLoader，来改变其载入类的行为
+	
+	ClassLoader被组织成树形，一般的工作原理是：
+	1) 线程需要用到某个类，于是contextClassLoader被请求来载入该类
+	2) contextClassLoader请求它的父ClassLoader来完成该载入请求
+	3) 如果父ClassLoader无法载入类，则contextClassLoader试图自己来载入
+
+4、Tomcat的类载入器的结构？
+	Tomcat Server在启动的时候将构造一个ClassLoader树，以保证模块的类库是私有的
+	Tomcat Server的ClassLoader结构如下：
+	        +-----------------------------+ 
+	        |         Bootstrap           | 
+	        |             |               | 
+	        |          System             | 
+	        |             |               | 
+	        |          Common             | 
+	        |         /      \            | 
+	        |     Catalina  Shared        | 
+	        |               /    \        | 
+	        |          WebApp1  WebApp2   | 
+	        +-----------------------------+
+	其中：
+	- Bootstrap - 载入JVM自带的类和$JAVA_HOME/jre/lib/ext/*.jar， 即java.****开头的 和 javax.****开头的。
+	- System - 载入$CLASSPATH/*.class
+	- Common - 载入$CATALINA_HOME/common/...，它们对TOMCAT和所有的WEB APP都可见
+	- Catalina - 载入$CATALINA_HOME/server/...，它们仅对TOMCAT可见，对所有的WEB APP都不可见
+	- Shared - 载入$CATALINA_HOME/shared/...，它们仅对所有WEB APP可见，对TOMCAT不可见（也不必见）
+	- WebApp - 载入ContextBase?/WEB-INF/...，它们仅对该WEB APP可见

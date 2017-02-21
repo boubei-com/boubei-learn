@@ -1,0 +1,88 @@
+   “Decorator 模式的主要目的是利用一个对象，透明的为另一个对象添加新的功能”。
+    这句话是从GOF 关于设计模式的经典著作《设计模式-可复用面向对象软件的基
+础》一书中关于Decorator 模式的描述直译而来，可能比较难以理解。简单来讲，就是
+通过一个Decorator 对原有对象进行封装，同时实现与原有对象相同的接口，从而得到
+一个基于原有对象的，对既有接口的增强性实现。
+    对于前面所讨论的Connection 释放的问题，理所当然，我们首先想到的是，如果
+能让JDBC Connection 在执行close 操作时自动将自己返回到数据库连接池中，那么所
+有问题都将迎刃而解，但是，JDBC Connection 自己显然无法根据实际情况判断何去何
+从。此时，引入Decorator 模式来解决我们所面对的问题就非常合适。
+首先，我们引入一个ConnectionDecorator 类:
+
+public class ConnectionDecorator implements Connection {
+	Connection dbconn;
+	public ConnectionDecorator(Connection conn){
+		this.dbconn = conn; //实际从数据库获得的Connection引用
+	}
+	/* 此方法将被子类覆盖，以实现数据库连接池的连接返回操作
+	* @see java.sql.Connection#close()
+	*/
+	public void close() throws SQLException {
+		this.dbconn.close();
+	}
+	public void commit() throws SQLException {
+		this.dbconn.commit();//调用实际连接的commit方法
+	}
+	……
+	//以下各个方法类似,均调用dbconn.xxx方法作为Connection接口定义的功能。
+	……
+}
+    可以看到，ConnectionDecorator 类实际上是对传入的数据库连接加上了一个外壳，它实
+现了java.sql.Connection 接口，不过本身并没有实现任何实际内容，只是简单的把方法
+的实现委托给运行期实际获得的Connection 实例，而从外部来看，ConnectionDecorator
+与普通的Connection 实例并没有什么区别，因为它们实现了同样的接口，对外提供了同
+样的功能调用。
+    目标很清楚，通过这样的封装，我们的ConnectionDecorator 对于外部的程序员而言，调
+用方法与普通的JDBC Connection 完全相同，而在内部通过对ConnectionDecorator 的修
+改，我们就可以透明的改变现有实现，为之增加新的特性：
+
+public class PooledConnection extends ConnectionDecorator {
+	private ConnectionPool connPool;
+	public PooledConnection(ConnectionPool pool,Connection conn)
+	{
+		super(conn);
+		connPool = pool;
+	}
+	/**
+	* 覆盖close方法，将数据库连接返回连接池，而不是直接关闭连接
+	*/
+	public void close() throws SQLException {
+		connPool.releaseConnection(this.dbconn);
+	}
+	……
+}
+    
+    为了应用新的PooledConnection ， 我们需要对原本的DBConnectionPool.
+getConnection 和releaseConnection 方法稍做改造:
+public synchronized Connection getConnection() throws DBException
+	{
+		if (pool == null) {
+		pool = new Vector();
+	}
+	Connection conn;
+	if (pool.isEmpty()) {
+		conn = createConnection();
+	} else {
+		int last_idx = pool.size() - 1;
+		conn = (Connection) pool.get(last_idx);
+		pool.remove(pool.get(last_idx));
+	}
+		return new PooledConnection(this,conn);
+}
+public synchronized void releaseConnection(Connection conn) {
+	if (conn instanceof PooledConnection || pool.size() > POOL_MAX_SIZE)
+	{
+		try {
+		conn.close();
+	} catch (SQLException e) {
+		e.printStackTrace();
+	}
+	} else {
+		pool.add(conn);
+	}
+}
+	
+	此时，获取数据库连接后，调用者只需要按照JDBC Connection 的标准用法进行调用即
+可，从而实现了数据库连接池的透明化。同样的道理，我们甚至可以利用Decorator 模
+式对DriverManager 类进行同样的改造，从而最小化数据库连接池实现对传统JDBC 编
+码方式的影响。

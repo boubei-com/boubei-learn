@@ -1,0 +1,24 @@
+1.数组array的缺陷：
+ （1）一般的数组查询比较慢，插入很快（直接插入到最后一个位置）；
+      而排序数组相反；但删除都非常慢，因为平均下来要有一般的数据要移动。
+ （2）数组初始化的时候长度就必须确定下来了，而实际应用中数据的长度往往是不确定的。
+ 
+2.向量Vector的问题： 效率太低，其实现长度可伸缩功能是通过将一个数组拷贝到另外一个数组（If the class user is about to overflow
+	the internal array in this class, the insertion algorithm（算法） creates a new array of larger size,
+	copies the old array contents to the new array, and then inserts the new item.）
+	
+	An algorithm that runs in O(1) time is the best, O(log N) is good, O(N) is fair, and O(N2)
+    is pretty bad.
+    
+3.各种排序算法：(1)冒泡排序（bubble sort）：  比较：O(N*N), 交换O(N*N)
+                                        1. Compare two players.
+						 				2. If the one on the left is taller, swap them.
+						 				3. Move one position right.
+				 			 
+			  (2)选择排序（Selection sort） 比较：O(N*N), 交换O(N)
+			                            1.循环，记下当前循环再小的一个
+			                            2.将记录下的和当前循环最左边的数交换
+			                          
+			  (3)插入排序（Insertion sort）
+			           For data that is already sorted or almost sorted, the insertion sort does much better.
+			            如果数据杂乱无章，则插入排序不会比冒泡快

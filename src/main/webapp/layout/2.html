@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>浮动布局</title>
+ 
+    <style type="text/css">
+ 
+        .container {
+            position: relative;
+            border: 1px solid #ccc;
+            height: 500px;
+        }
+        .elem {
+            border: solid  #6AC5AC 3px;
+            box-sizing:border-box;
+        }
+        .clearfix:after {
+            content: ".";
+            display: block;
+            height: 0;
+            clear: both;
+            visibility: hidden;
+        }
+        section {
+            height: 250px;
+        }
+
+        @media screen and (min-width:600px) {
+            nav {
+                float:left;
+                width:200px;  /* 25% */
+                height:100%;
+                background-color: red;
+            }
+            section {
+                margin-left: 200px;  /* 25% */
+            }
+        }
+        @media screen and (max-width:599px) {
+            nav {
+                display:none;
+            }
+        }
+       
+
+    </style>
+
+</head>
+<body>
+    <div class="container clearfix">
+        <nav class="elem">nav</nav>
+        <section class="elem">section1</section>
+        <section class="elem">section2</section>
+    </div>
+
+</body>
+</html>

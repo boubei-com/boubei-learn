@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+  <meta charset="UTF-8">
+
+  <title>CSS3自定义美化UL OL列表DEMO演示</title>
+
+  <link rel="stylesheet" href="../../lib/normalize.css">
+
+  <style type="text/css">
+
+.live > li {
+  list-style: none;
+  position: relative;
+  padding: 0 0 0 2em;
+  margin: 0 0 .5em 10px;
+  -webkit-transition: .12s;
+          transition: .12s;
+}
+.live > li::before {
+  position: absolute;
+  content: '\2022';
+  font-family: Arial;
+  color: #FFF;
+  top: 0;
+  left: 0;
+  text-align: center;
+  font-size: 2em;
+  opacity: .5;
+  line-height: .75;
+  -webkit-transition: .5s;
+          transition: .5s;
+}
+.live > li:hover {
+  color: #FFF;
+}
+.live > li:hover::before {
+  -webkit-transform: scale(2);
+      -ms-transform: scale(2);
+          transform: scale(2);
+  opacity: 1;
+  text-shadow: 0 0 4px;
+  -webkit-transition: .1s;
+          transition: .1s;
+}
+
+.live.numbers {
+  counter-reset: xxx 0;
+}
+.live.numbers > li::before {
+  content: counter(xxx,decimal) ".";
+  counter-increment: xxx 1;
+  font-family: 'Roboto Condensed';
+  font-size: 1em;
+  opacity: .5;
+  line-height: 1.4;
+  -webkit-transition: .5s;
+          transition: .5s;
+}
+.live.numbers > li:hover:before {
+  opacity: 1;
+  left: -10px;
+  -webkit-transform: none;
+      -ms-transform: none;
+          transform: none;
+  text-shadow: none;
+  -webkit-transition: .12s;
+          transition: .12s;
+}
+
+body {
+  height: 100%;
+  font: 1.33em 'Roboto Condensed', arial;
+  color: #FFF;
+  text-align: center;
+  background-image: -webkit-radial-gradient(circle, #3c3b52 0%, #252233 80%);
+  background-image: radial-gradient(circle, #3c3b52 0%, #252233 80%);
+}
+
+ol, ul {
+  width: 28%;
+  display: inline-block;
+  text-align: left;
+  vertical-align: top;
+  background: rgba(0, 0, 0, 0.2);
+  color: rgba(255, 255, 255, 0.5);
+  border-radius: 5px;
+  padding: 1.5em;
+  margin: 2%;
+  box-shadow: 0 0 8px rgba(0, 0, 0, 0.2);
+}
+  </style>
+
+</head>
+
+<body>
+
+<ol class="live numbers">
+  <li>I have never seen anything like this</li>
+  <li>This is most certainly cool, and it can also work on long texts inside the list-item elements, which spans over multiple lines</li>
+  <li>Un-ordered lists are fun to play with.</li>
+  <li>Firefox sure does animate this effect nicely.</li>
+  <li>This is so simple</li>
+</ol>
+
+<ul class="live">
+  <li>I have never seen anything like this</li>
+  <li>This is most certainly cool, and it can also work on long texts inside the list-item elements, which spans over multiple lines</li>
+  <li>Un-ordered lists are fun to play with</li>
+  <li>Firefox sure does animate this effect nicely</li>
+  <li>This is so simple</li>
+</ul>
+
+</body>
+
+</html>

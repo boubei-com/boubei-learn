@@ -1,0 +1,20 @@
+注意: Bridge模式的执行类如CoffeeImp和Coffee是一对一的关系, 
+正确创建CoffeeImp是该模式的关键
+
+Bridge模式在EJB中的应用
+EJB中有一个Data Access Object (DAO)模式,这是将商业逻辑和具体数据资源分开的,
+因为不同的数据库有不同的数据库操作.将操作不同数据库的行为独立抽象成一个行为接口DAO.如下:
+
+1.Business Object (类似Coffee)
+
+	实现一些抽象的商业操作:如寻找一个用户下所有的订单
+
+	涉及数据库操作都使用DAOImplementor.
+
+2.Data Access Object (类似CoffeeImp)
+
+	一些抽象的对数据库资源操作
+
+3.DAOImplementor 如OrderDAOCS, OrderDAOOracle, OrderDAOSybase(类似MilkCoffeeImp FragrantCoffeeImp)
+
+	具体的数据库操作,如"INSERT INTO "等语句,OrderDAOOracle是Oracle OrderDAOSybase是Sybase数据库.

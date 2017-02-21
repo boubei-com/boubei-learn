@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+  <meta charset="UTF-8">
+
+  <title>CSS border学习</title>
+
+  <style type="text/css">
+
+body {
+  background-color: transparent;
+}
+
+.circle { width: 200px; height: 200px; border-radius: 50%; background-color: #292929; }
+.box { width: 200px; height: 200px; background: black;}
+
+.arrow1 { width: 0; height: 0; border: 100px solid;  border-color: red green blue yellow; }
+
+.arrow2 { width: 0; height: 0;   border: 100px solid transparent;  border-bottom-color: blue; }
+
+.speech-bubble {    
+  position: relative;    
+  background-color: #292929;    
+  width: 200px; height: 150px;  
+  color: white;    
+  text-align: center;
+  border-radius: 10px;
+  display: table; /* 使垂直居中 */ 
+}
+
+/* 使垂直居中 */ 
+.speech-bubble p {  display: table-cell;  vertical-align: middle;}
+
+.speech-bubble:after {  content: ''; width: 0;  height: 0;   border: 15px solid;  position: absolute; }
+
+/* 箭头的位置 */ 
+.speech-bubble-top:after {  border-bottom-color: #292929;   left: 50%;  bottom: 100%;  margin-left: -15px;  }
+.speech-bubble-right:after {  border-left-color: #292929;   left: 100%;  top: 50%;  margin-top: -15px;   } 
+.speech-bubble-bottom:after {  border-top-color: #292929;   top: 100%;  left: 50%;  margin-left: -15px;  } 
+.speech-bubble-left:after {  border-right-color: #292929;   top: 50%;  right: 100%;  margin-top: -15px;   }
+
+
+.biohazard {  width: 0; height: 0;  
+   border: 60px solid;  border-radius: 50%;   
+   border-top-color: black;  border-bottom-color: black;  border-left-color: yellow;  border-right-color: yellow;
+}
+
+.lemon {   width: 200px; height: 200px;    background: #F5F240;   border: 1px solid #F0D900;        border-radius: 10px 150px 30px 150px;}
+
+  </style>
+
+</head>
+
+<body>
+
+  <div class="circle"></div><br>
+
+  <div class="box arrow1"></div><br>
+  
+  <div class="box arrow2"></div><br>
+
+  <div class="speech-bubble speech-bubble-top"><p>Hi, 我是一个气泡. Hi, 我是一个气泡. Hi, 我是一个气泡. Hi, 我是一个气泡.</p></div><br>
+ 
+  <div class="speech-bubble speech-bubble-bottom"><p>Hi, 我是一个气泡</p></div><br>
+
+  <div class="speech-bubble speech-bubble-left"><p>Hi, 我是一个气泡</p></div><br>
+
+  <div class="speech-bubble speech-bubble-right"><p>Hi, 我是一个气泡</p></div><br>
+
+  <div class="biohazard"></div><br>
+
+  <div class="lemon "></div><br>
+
+</body>
+
+</html>

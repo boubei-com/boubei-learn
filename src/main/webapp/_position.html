@@ -1,0 +1,57 @@
+<!doctype html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<style type="text/css">
+		#div1 {
+			width: 300px;
+			height: 300px;
+			border: 1px solid black;
+			position: relative;
+			right: -800px;
+		}
+		#div2 {
+			width: 150px;
+			height: 150px;
+			border: 1px solid blue;
+			position: absolute;
+			top: 5px;
+			right: 10px;
+		}
+		*{margin:0;padding:0;font-size: 12px;}
+	</style>
+
+</head>
+<body>
+	<div id="div1">
+		<div id="div2"></div>
+	</div>
+
+	<div style="position:absolute;height:400px;width:400px;background:yellow;left:180px;top:80px;">
+		<div style="height:100px;width:100px;background:grey;"></div>
+		<div style="position:absolute;height:100px;width:100px;background:red;left:100px;top:100px;">absolute:脱离文档流，不占文档空间。根据父块的border进行的定位,不受父块padding影响，但受margin影响</div>
+		<div style="position:relative;height:100px;width:100px;background:blue;left:100px;top:100px;">relative:相对于该div在文档流中位置偏移</div>
+		<div style="height:100px;width:100px;background:orange;">after relative：可以发现上一个div定位偏移后，但继续占着它原来的文档空间</div>
+		<div style="position:fixed;height:100px;width:200px;background:black;left:20px;top:20px;color:white">fixed：固定定位，脱离文档流，能够根据top、right、left、bottom属性进行定位，其根据body为原点进行偏移定位的，也就是说它不会根据滚动条的滚动而进行偏移</div>
+	</div>
+	<div style="position:static;height:140px;width:140px;background:green;left:220px;top:220px;">static</div>
+
+	<!-- 参考
+	<h1>http://zh.learnlayout.com/position.html</h1>
+
+	static 是默认值。任意 position: static; 的元素不会被特殊的定位。一个 static 元素表示它不会被“positioned”，一个 position 属性被设置为其他值的元素表示它会被“positioned”。
+
+	relative: 在一个相对定位（position属性的值为relative）的元素上设置 top 、 right 、 bottom 和 left   属性会使其偏离其正常位置。其他的元素则不会调整位置来弥补它偏离后剩下的空隙。
+
+	fixed:
+	一个固定定位（position属性的值为fixed）元素会相对于视窗来定位，这意味着即便页面滚动，它还是会停留在相同的位置。和 relative 一样， top 、 right 、 bottom 和 left 属性都可用。
+
+	absolute 是最棘手的position值。 absolute 与 fixed 的表现类似，除了它不是相对于视窗而是相对于最近的“positioned”祖先元素。如果绝对定位（position属性的值为absolute）的元素没有“positioned”祖先元素，那么它是相对于文档的 body 元素，并且它会随着页面滚动而移动。记住一个“positioned”元素是指p osition 值不是 static 的元素。
+	-->
+	
+</body>
+</html>
+
+
+<html >
+

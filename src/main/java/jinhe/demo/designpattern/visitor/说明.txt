@@ -1,0 +1,10 @@
+Visitor模式的常用之处在于，它将对象集合的结构和对集合所执行的操作分离开来
+
+实现VisitableFloat和VisitableCollection类的时候，它们也是各自调用合适的Visitor方法，
+所得到的效果和前面那个用了if-else的messyPrintCollection方法一样，但这里的手法更干净。
+在visitCollection()中，调用的是Visitable.accept(this)，然后这个调用又返回去调用一个合适的Visitor方法。
+这被称做 "双分派"；即，Visitor先调用了Visitable类中的方法，这个方法又回调到Visitor类中。
+
+虽然通过实现visitor消除了if-else语句，却也增加了很多额外的代码。最初的String和Float对象都要
+用实现了Visitable接口的对象进行包装。这有点讨厌，但一般说来不是问题，因为你可以让经常被访问的
+集合只包含那些实现了Visitable接口的对象。
