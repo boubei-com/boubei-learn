@@ -1,5 +1,14 @@
 
-进阶：
-1、Hadoop Spark
-2、系统运维（性能、安全......）
-3、linux 鸟哥linux私房器
+2.22
+部署BI-4.0， 清理
+更新BI-UAT
+
+TSS介绍     2h
+BI4.0 介绍  2h
+Github使用入门 2h
+
+2.23
+整理CSS 学习例子  2h
+整理Java 学习例子  2h
+整理JS、CSS编码规范 2h
+JAVA、JS（thinking in java & js权威指南）
