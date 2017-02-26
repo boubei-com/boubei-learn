@@ -1,14 +1,9 @@
 
-2.22
-部署BI-4.0， 清理
-更新BI-UAT
+2.25、26
 
-TSS介绍     2h
-BI4.0 介绍  2h
-Github使用入门 2h
+制作教学视频
 
-2.23
-整理CSS 学习例子  2h
-整理Java 学习例子  2h
 整理JS、CSS编码规范 2h
-JAVA、JS（thinking in java & js权威指南）
+
+JAVA 《thinking in java》 
+JS   《js权威指南》
