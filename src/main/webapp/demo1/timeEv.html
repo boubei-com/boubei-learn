@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>里程碑记录</title>
+</head>
+
+<style type="text/css">
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+	line-height: 1;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+
+body{font-size: 14px;font-family: '微软雅黑';background-color: rgb(247,247,247);height:100%;}
+.w1000{width:80%;margin:0 auto;}
+.header.contrainer{background-color: #ccc;height:60px;line-height: 60px;}
+.header a{display:block;color:#000;text-decoration: none}
+.body{line-height: 40px;}
+.body .header{font-size: 20px;margin: 50px 0 100px;}
+.event_wrap{position:relative;}
+.event_wrap .middle_line{position:absolute;left:50%;top:0;width:8px;margin-left: 0px;border-left: 1px solid #000;height:100%;}
+.event_wrap .middle_line i{display:block;height:3.31%;border-bottom: 1px solid #000;width:60%;}
+.event_wrap .middle_line i.first{padding-top: 75px;}
+.event_wrap .middle_line i.last{margin-bottom: 25px;}
+.big_squre{margin-left:-30px;left:50%;display:block;position:absolute;top:8px;width:60px;height:60px;background-color: #6e6e6e;border-radius: 10px;transform:rotate(45deg);-webkit-transform:rotate(45deg);}
+.big_squre i{transform:rotate(-45deg);-webkit-transform: rotate(-45deg);display: block;position: absolute;left: 11px;color: #fff;top: 11px;font-size: 18px}
+.small_squire{position:absolute;top:11px;display:block;height:12px;width:12px;padding:3px;border-radius: 3px;transform:rotate(45deg);-webkit-transform:rotate(45deg);background-color: #6e6e6e;}
+.small_squire i{display:block;width:12px;height:12px;background-color: #fff;border-radius: 3px;}
+.event_wrap .list{height:300px;position:relative;padding-top: 75px;}
+.aActiveWid{width:50% !important;filter:alpha(opacity=100) !important;opacity:1 !important;}
+.event_wrap .list:last-child{height:275px;}
+.event_wrap .list .ev_text{position:absolute;opacity:0.1;filter:alpha(opacity=10);width:0px;overflow: hidden; 
+    -o-transition: all 3s ease;
+    -moz-transition: all 3s ease;
+    -ms-transition: all 3s ease;
+    -webkit-transition: all 3s ease;
+    transition: all 3s ease;}
+.event_wrap .list_right .ev_text_odd,.event_wrap .list_left .ev_text_event{text-align: left;left:50%;}
+.event_wrap .list_right .ev_text_event,.event_wrap .list_left .ev_text_odd{text-align: right;left:initial;right:50%;}
+.event_wrap .list .ev_t1{top: 55px;}
+.event_wrap .list .ev_t2{top: 80px;}
+.event_wrap .list .ev_t3{top: 105px;}
+.event_wrap .list .ev_t4{top: 130px;}
+.event_wrap .list .ev_t5{top: 155px;}
+.event_wrap .list .ev_t6{top: 180px;}
+.event_wrap .list .ev_t7{top: 205px;}
+.event_wrap .list .ev_t8{top: 230px;}
+.event_wrap .list .ev_t9{top: 255px;}
+.event_wrap .list .ev_t10{top: 280px;}
+.event_wrap .list .ev_t11{top: 305px;}
+.event_wrap .list .ev_t12{top: 330px;}
+
+.event_wrap .list_right .small_squire,.event_wrap .list_left .ev_text_event .small_squire{left:4px;}
+.event_wrap .list_left .small_squire,.event_wrap .list_right .ev_text_event .small_squire{right:3px;left:inherit;}
+.event_wrap .list .small_line,.event_wrap .list_left .ev_text_event .samll_line{display: inline-block;position: absolute;height: 1px;overflow: hidden;border-top: 1px solid #000;top: 19px;left: 24px;width: 13%;}
+.event_wrap .list_left .ev_text_odd .small_line,.event_wrap .list_right .ev_text_event .small_line{right:23px;left:initial;}
+.ev_text h3{font-size: 18px;padding-left: 20%;width:80%}
+.ev_text p{line-height: 20px;padding-left:20%;width:80%;height:40px;overflow: hidden;}
+.list_right .ev_text_event h3,.list_right .ev_text_event p,.list_left .ev_text_odd h3,.list_left .ev_text_odd p{padding-right: 100px;padding-left: inherit}
+
+</style>
+
+<body>
+
+<div class="contrainer header">
+ 
+	<div class="w1000 tc body">
+		<div class="event_wrap clearfix">
+			<div class="middle_line">					
+			</div>			
+		</div>
+
+	</div>
+
+</div>
+	
+
+
+
+<script type="text/javascript" src="jquery.min.js"></script>
+<script type="text/javascript">
+
+;(function($,window,document,undefined){
+	var pluginName = 'eventFlow',
+		defaults ={};
+	function EventFlow(element,options){
+		this.init(element,options);
+	}
+	EventFlow.prototype = {
+		init : function(element,options){
+			this.spliceHtml(element,options);
+			var $text = $('.event_wrap .list .ev_text');
+			var point = [];
+  			$text.each(function(index, el) {  		
+  				point.push($(this).offset().top)  	
+  			});
+  			$(window).scroll(function(event) {
+  				var s = $(this).scrollTop();  
+  				for(var i =0;i<point.length;i++){  		
+  					if(s+ $(document).height()*2/3 > point[i] ){
+  						$($text[i]).addClass('aActiveWid');  			
+  					}else{
+  						$($text[i]).removeClass('aActiveWid')
+  					}
+  				}
+  			});
+		},
+		spliceHtml :function(element,options){
+			var $element = element;
+			var $middleLine = $element.find('.middle_line');
+			var middleLineI = '';
+			var list = ''
+			for(var i = 0;i<options.events.length;i++){
+				middleLineI +='<i class="first"></i>'
+					+'<i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i>'
+					+'<i class="last"></i>';
+				if((i+1)%2 == 0){
+                       list += '<div class="list_right list">'
+				}else{
+					list +='<div class="list_left list">'
+				}
+				list +='<span class="big_squre"><i>'+options.events[i].year+'</i></span>';
+				for(var j = 0;j < options.events[i].events.length;j++){
+					if((j+1)%2 == 0){
+						list +='<div class="ev_text_odd ev_text ev_t'+options.events[i].events[j].mouths+'">'
+					}else{
+						list +='<div class="ev_text ev_text_event ev_t'+options.events[i].events[j].mouths+'">'
+					}
+					list +=	'<span class="small_squire"><i></i></span>'
+						+'<span class="small_line"></span>'
+						+'<h3>'+options.events[i].events[j].times+'</h3>'
+						+'<p>'+options.events[i].events[j].even+'</p>'
+					+'</div>';				
+				}
+				list += '</div>';
+			};
+			$element.append(list);
+			$middleLine.html(middleLineI);
+		}
+	}
+	$.fn[pluginName] = function(options){
+		options = $.extend(true, options, defaults);		
+		return this.each(function(){
+            new EventFlow($(this),options)
+        });
+	}
+})(jQuery,window,document)
+
+
+	$(function(){
+		var bigEvent =[{
+		'year' : 2015,
+		'events' :[
+		{
+			'mouths' : 2,
+			'times' :'2015年2月29',
+			'even' :'米校园创业团队正式成立，确定以“个性化定制”为核心的校园综合服务团队，覆盖20多所大学，成为小'
+		},{
+			'mouths' : 4,
+			'times' :'2015年4月3',
+			'even' :'米校园创业团队正式成立，确定以“个性化定制”为核心的校园综合服务团队，覆盖20多所大学，成为小'
+		},{
+			'mouths' : 10,
+			'times' :'2015年10月11日',
+			'even' :'米校园创业团队正式成立，确定以“个性化定制”为核心的校园综合服务团队，覆盖20多所大学，成为小'
+		}]
+	},{
+		'year' : 2016,
+		'events' :[
+		{
+			'mouths' : 2,
+			'times' :'2016年2月18',
+			'even' :'米校园创业团队正式成立，确定以“个性化定制”为核心的校园综合服务团队，覆盖20多所大学，成为小'
+		},{
+			'mouths' : 4,
+			'times' :'2016年4月15',
+			'even' :'米校园创业团队正式成立，确定以“个性化定制”为核心的校园综合服务团队，覆盖20多所大学，成为小'
+		}
+		]}];
+		$('.event_wrap').eventFlow({'events':bigEvent});
+	})
+
+</script>
+
+
+</body>
+</html>
