@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<reports>
+	<report id="querySite" name="站点货量查询">
+		<sql index="1"><![CDATA[
+			select s.name 网点, count(t.code) 票数, sum(t.amount) 件数, round( sum(t.weight) ) 重量
+				from usr_vf.gt_trans_order t, usr_vf.gt_site s
+				where t.send_site_id = s.id
+				   and ? in (s.id, s.parent_site_id)
+				   and t.created_time >= trunc(sysdate)
+				 group by s.name
+		]]></sql>
+		<sql index="2"><![CDATA[
+			select s.name 网点, count(t.code) 票数, sum(t.amount) 件数, round( sum(t.weight) ) 重量
+				from usr_vf.gt_trans_order t, usr_vf.gt_site s
+				where t.send_site_id = s.id
+				   and ? in (s.id, s.parent_site_id)
+				   and t.created_time >= to_date(?, 'yyyy-mm-dd')
+				   and t.created_time <= to_date(?, 'yyyy-mm-dd')
+				 group by s.name
+		]]></sql>
+		<sql index="3"><![CDATA[
+			select s.name 网点, count(t.code) 票数, sum(t.amount) 件数, round( sum(t.weight) ) 重量
+				from usr_vf.gt_trans_order t, usr_vf.gt_site s
+				where t.send_site_id = s.id
+				   and ${param1} in (s.id, s.parent_site_id)
+				   and t.created_time >= to_date('${param2}','yyyy-mm-dd')
+				   and t.created_time <= to_date('${param3}','yyyy-mm-dd')
+				 group by s.name
+		]]></sql>
+	</report>
+</reports>

@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<strategies> 
+  <strategy code="connectionpool" name="DB连接池-MySQL"> 
+    <poolClass>com.boubei.tss.cache.ReusablePool</poolClass>  
+    <poolSize>50</poolSize>  
+    <cyclelife>3600000</cyclelife>  
+    <interruptTime>1000</interruptTime>  
+    <initNum>5</initNum>  
+    <disabled>0</disabled>
+	<visible>1</visible>  
+    <customizerClass>com.boubei.tss.framework.persistence.connpool.ConnPoolCustomizer</customizerClass>  
+  </strategy>
+  
+  <strategy code="ds-bi" name="DB连接池-MySQL-Master"> 
+    <poolClass>com.boubei.tss.cache.ReusablePool</poolClass>  
+    <poolSize>10</poolSize>  
+    <cyclelife>3600000</cyclelife>  
+    <interruptTime>1000</interruptTime>  
+    <initNum>0</initNum>  
+    <disabled>0</disabled>
+	<visible>1</visible>  
+    <customizerClass>com.boubei.tss.framework.persistence.connpool.ConnPoolCustomizer</customizerClass>  
+    <paramFile>com.mysql.jdbc.Driver,jdbc:mysql://10.9.45.68:3306/btrbi,root,800best@com</paramFile>
+  </strategy>
+  <strategy code="ds-ydn" name="DB连接池-雅典娜"> 
+    <poolClass>com.boubei.tss.cache.ReusablePool</poolClass>  
+    <poolSize>10</poolSize>  
+    <cyclelife>3600000</cyclelife>  
+    <interruptTime>1000</interruptTime>  
+    <initNum>0</initNum>  
+    <disabled>0</disabled>
+	<visible>1</visible>  
+    <customizerClass>com.boubei.tss.framework.persistence.connpool.ConnPoolCustomizer</customizerClass>  
+    <paramFile>oracle.jdbc.driver.OracleDriver,jdbc:oracle:thin:@(DESCRIPTION = (ADDRESS = (PROTOCOL = TCP)(HOST = 10.9.44.67)(PORT = 1521))(CONNECT_DATA = (SERVER = DEDICATED)(SERVICE_NAME = kybidb1))),bi_test,bi_test</paramFile>
+  </strategy>
+     
+  <strategy code="threadpool" name="线程池"> 
+    <poolClass>com.boubei.tss.cache.extension.threadpool.ThreadPool</poolClass>  
+	<poolContainerClass>com.boubei.tss.cache.MapContainer</poolContainerClass>  
+    <cyclelife>0</cyclelife>  
+    <interruptTime>1000</interruptTime>  
+	<poolSize>10</poolSize>  
+    <initNum>5</initNum>  
+    <disabled>0</disabled>  
+    <customizerClass>com.boubei.tss.cache.extension.threadpool.ThreadPoolCustomizer</customizerClass>  
+  </strategy>  
+  <strategy code="taskpool" name="日志输出任务池"> 
+    <poolClass>com.boubei.tss.cache.ReusablePool</poolClass>  
+    <poolContainerClass>com.boubei.tss.cache.MapContainer</poolContainerClass>    
+    <poolSize>100</poolSize>  
+    <cyclelife>0</cyclelife>  
+    <interruptTime>100</interruptTime>  
+    <initNum>10</initNum>  
+    <disabled>0</disabled>  
+    <customizerClass>com.boubei.tss.modules.log.LogOutputTaskPoolCustomizer</customizerClass>  
+    <accessMethod>3</accessMethod>  
+  </strategy> 
+  
+  <strategy code="SHORTER" name="数据缓存（3分钟）"> 
+    <poolClass>com.boubei.tss.cache.ObjectPool</poolClass>  
+    <poolSize>1000</poolSize>  
+    <cyclelife>180000</cyclelife>  
+    <accessMethod>5</accessMethod>  
+  </strategy>  
+  <strategy code="SHORT" name="数据缓存（10分钟）"> 
+    <poolClass>com.boubei.tss.cache.ObjectPool</poolClass>  
+    <poolSize>1000</poolSize>  
+    <cyclelife>600000</cyclelife>  
+    <accessMethod>5</accessMethod>  
+  </strategy>
+  <strategy code="LONG" name="数据缓存（一天）"> 
+    <poolClass>com.boubei.tss.cache.ObjectPool</poolClass>  
+    <poolSize>300</poolSize>  
+    <cyclelife>43200000</cyclelife>  
+    <accessMethod>5</accessMethod>  
+  </strategy>  
+  <strategy code="NODEAD" name="数据缓存（不死）"> 
+    <poolClass>com.boubei.tss.cache.ObjectPool</poolClass>  
+    <poolSize>1000</poolSize>  
+    <cyclelife>0</cyclelife>  
+    <accessMethod>5</accessMethod>  
+  </strategy>      
+</strategies>

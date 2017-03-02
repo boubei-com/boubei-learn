@@ -15,6 +15,30 @@
   </properties>
 
   <dependencies>
+  		<!-- TSS dependency -->
+		<dependency>
+			<groupId>com.boubei</groupId>
+			<artifactId>tss</artifactId>
+			<version>4.1</version>
+			<classifier>all</classifier>
+		</dependency>	
+
+		<!-- BASE dependency -->
+		<!-- Oracle DB driver 4 release -->
+		<dependency>
+			<groupId>ojdbc</groupId>
+			<artifactId>ojdbc</artifactId>
+			<version>14</version>
+		</dependency>
+		
+		<!-- H2 DEPENDENCIES -->
+		<dependency>
+			<groupId>com.h2database</groupId>
+			<artifactId>h2</artifactId>
+			<version>1.2.125</version>
+			<scope>test</scope>
+		</dependency>
+		
    		<dependency>
 			<groupId>junit</groupId>
 			<artifactId>junit</artifactId>
@@ -22,36 +46,13 @@
 			<scope>test</scope>
 		</dependency>
 		
+		<!-- provided -->
 		<dependency>
-			<groupId>log4j</groupId>
-			<artifactId>log4j</artifactId>
-			<version>1.2.13</version>
+			<groupId>javax.servlet</groupId>
+			<artifactId>javax.servlet-api</artifactId>
+		    <version>3.0.1</version>
+			<scope>provided</scope>
 		</dependency>
-		<dependency>
-			<groupId>org.slf4j</groupId>
-			<artifactId>slf4j-log4j12</artifactId>
-			<version>1.5.8</version>
-		</dependency>
-	    <dependency>
-            <groupId>commons-collections</groupId>
-            <artifactId>commons-collections</artifactId>
-            <version>3.2</version>
-        </dependency>
-        <dependency>
-            <groupId>commons-lang</groupId>
-            <artifactId>commons-lang</artifactId>
-            <version>2.3</version>
-        </dependency>
-        <dependency>
-            <groupId>commons-logging</groupId>
-            <artifactId>commons-logging</artifactId>
-            <version>1.0.4</version>
-        </dependency>
-		<dependency>
-            <groupId>commons-beanutils</groupId>
-            <artifactId>commons-beanutils</artifactId>
-            <version>1.7.0</version>
-        </dependency>
 		
   </dependencies>
 </project>
