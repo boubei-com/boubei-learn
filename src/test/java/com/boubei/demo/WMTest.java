@@ -10,7 +10,7 @@ import com.boubei.tss.dm.data.sqlquery.SQLExcutor;
 import com.boubei.tss.dm.data.sqlquery.SqlConfig;
 import com.boubei.tss.util.EasyUtils;
 
-public class DBTest {
+public class WMTest {
 	
 	public static void printResult(List<Map<String, Object>> result) {
 		System.out.println("--------- 本次查询结果为： ----------");
