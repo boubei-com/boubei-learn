@@ -7,27 +7,26 @@ import java.util.Iterator;
  *
  * 只能遍历同一类型的对象
  */
-@SuppressWarnings("unchecked")
-public class TypedIterator implements Iterator {
-	private Iterator imp;
+public class TypedIterator implements Iterator<Object> {
+	private Iterator<Object> iter;
 
-	private Class type;
+	private Class<Object> type;
 
-	public TypedIterator(Iterator it, Class type) {
-		imp = it;
+	public TypedIterator(Iterator<Object> it, Class<Object> type) {
+		iter = it;
 		this.type = type;
 	}
 
 	public boolean hasNext() {
-		return imp.hasNext();
+		return iter.hasNext();
 	}
 
 	public void remove() {
-		imp.remove();
+		iter.remove();
 	}
 
 	public Object next() {
-		Object obj = imp.next();
+		Object obj = iter.next();
 		if (!type.isInstance(obj))
 			throw new ClassCastException("TypedIterator for type " + type
 					+ " encountered type: " + obj.getClass());

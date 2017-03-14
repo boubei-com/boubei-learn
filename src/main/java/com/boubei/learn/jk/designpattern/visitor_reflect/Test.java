@@ -14,9 +14,8 @@ import com.boubei.learn.jk.reflect.User;
 
 public class Test {
 
-    @SuppressWarnings("unchecked")
 	public static void main(String[] args){
-        List list = new ArrayList();
+        List<Object> list = new ArrayList<Object>();
         list.add("jinpj");
         list.add(new Float(12.0));
         

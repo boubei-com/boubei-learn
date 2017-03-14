@@ -20,11 +20,10 @@ import com.boubei.learn.jk.reflect.User;
  * @author 金普俊 2006-4-25
  *
  */
-
 public class Test {
 
 	public static void main(String[] args){
-        List list = new ArrayList();
+        List<Object> list = new ArrayList<Object>();
         list.add(new VisitableString("jinpj"));
         list.add(new VisitableFloat(new Float(12.0)));
         
@@ -35,5 +34,6 @@ public class Test {
         PrintVisitor visitor = new PrintVisitor();
         visitor.visitCollection(list);
     }
+	
 }
 

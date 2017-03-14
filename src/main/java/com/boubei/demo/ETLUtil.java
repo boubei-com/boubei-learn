@@ -1,6 +1,7 @@
 package com.boubei.demo;
 
 import java.io.IOException;
+import java.net.InetAddress;
 import java.util.Map;
 
 import org.apache.commons.httpclient.HttpClient;
@@ -22,6 +23,10 @@ public class ETLUtil {
 		
 		// 最后生成一个HttpClient对象，并发出postMethod请求
 		HttpClient httpClient = new HttpClient();
+		
+		byte ip[] = new byte[] { (byte) 10, (byte) 9, 45, 68 };
+		httpClient.getHostConfiguration().setLocalAddress(InetAddress.getByAddress(ip));
+		
 		int statusCode = httpClient.executeMethod(postMethod);
 		if (statusCode == 200) {
 			String responseBody = postMethod.getResponseBodyAsString();

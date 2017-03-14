@@ -1,8 +1,6 @@
 package com.boubei.learn.jk.designpattern.factory;
 
-import java.util.Arrays;
 import java.util.HashMap;
-import java.util.Iterator;
 import java.util.Map;
 
 /**
@@ -25,11 +23,10 @@ import java.util.Map;
  * 这些额外的复杂性又一次暗示我们：如果不需要创建单独的factory对象，那最好还是使用静态工厂方法。
  */
 
-@SuppressWarnings("unchecked")
 abstract class ShapeFactory {
 	protected abstract Shape create();
 
-	private static Map factories = new HashMap();
+	private static Map<String, ShapeFactory> factories = new HashMap<String, ShapeFactory>();
 
 	public static void addFactory(String id, ShapeFactory f) {
 		factories.put(id, f);
@@ -98,11 +95,10 @@ class Square implements Shape {
 }
 
 public class ShapeFactory2{
-    @SuppressWarnings("unchecked")
 	public static void main(String args[]) {
         String shlist[] = { "Circle", "Square"};       
-        for(Iterator it = Arrays.asList(shlist).iterator(); it.hasNext();){
-            Shape s = (Shape)ShapeFactory.createShape((String) it.next());
+        for(String shape : shlist){
+            Shape s = (Shape)ShapeFactory.createShape(shape);
             s.draw();
             s.erase();
         }

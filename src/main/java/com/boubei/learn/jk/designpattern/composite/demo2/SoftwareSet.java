@@ -1,6 +1,5 @@
 package com.boubei.learn.jk.designpattern.composite.demo2;
 
-import java.util.Iterator;
 
 /** 
  * <p> SoftwareSet.java </p> 
@@ -17,12 +16,10 @@ public class SoftwareSet extends SoftwareComposite {
         return null;
     }
     
-    @SuppressWarnings("unchecked")
 	public void accept(Visitor visitor) { 
         visitor.visitSoftwareSet(this); 
         
-        for (Iterator it = children.iterator(); it.hasNext(); ) { 
-            SoftwareComponent component = (SoftwareComponent)it.next(); 
+        for (SoftwareComponent component : children) { 
             component.accept(visitor); 
         } 
     } 

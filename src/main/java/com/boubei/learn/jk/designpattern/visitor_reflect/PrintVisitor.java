@@ -2,7 +2,6 @@ package com.boubei.learn.jk.designpattern.visitor_reflect;
 
 import java.lang.reflect.Method;
 import java.util.Collection;
-import java.util.Iterator;
 
 import com.boubei.learn.jk.reflect.User;
 
@@ -14,12 +13,11 @@ import com.boubei.learn.jk.reflect.User;
  * @author Jon.King 2006-4-26
  * 
  */
-@SuppressWarnings("unchecked")
 public class PrintVisitor implements ReflectiveVisitor {
     
-	public void visitCollection(Collection collection) {
-        for (Iterator it = collection.iterator(); it.hasNext();) {
-            visit(it.next());
+	public void visitCollection(Collection<Object> collection) {
+        for (Object o : collection) {
+            visit( o );
         }
     }
 
@@ -84,8 +82,8 @@ public class PrintVisitor implements ReflectiveVisitor {
      * @param clazz
      * @return
      */
-    protected Method getMethod(Class clazz) {
-        Class newClazz = clazz;
+    protected Method getMethod(Class<?> clazz) {
+        Class<?> newClazz = clazz;
         Method m = null;
         
         /* 
@@ -106,7 +104,7 @@ public class PrintVisitor implements ReflectiveVisitor {
          * 判断父类是否为Object.class，true则再在接口里找
          */   
         if (newClazz == Object.class) {
-           Class[] interfaces = clazz.getInterfaces();
+           Class<?>[] interfaces = clazz.getInterfaces();
            for (int i = 0; i < interfaces.length; i++) {
               String method = interfaces[i].getName();
               method = "visit" + method.substring(method.lastIndexOf('.') + 1);

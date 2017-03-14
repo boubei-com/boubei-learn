@@ -101,6 +101,11 @@ public class GreeterClassLoader extends ClassLoader {
             }
         }catch(IOException e){
             return null;
+        }finally {
+        	try {
+				bis.close();
+			} catch (IOException e) {
+			}
         }
         
         return baos.toByteArray();

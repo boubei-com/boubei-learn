@@ -11,15 +11,14 @@ import java.util.Set;
  * @author Jon.King 2006-4-23
  * 
  */
-@SuppressWarnings("unchecked")
 public class Observable {
     private boolean changed = false;
     
-	private Set obs;
+	private Set<Observer> obs;
 
     /** Construct an Observable with zero Observers. */
     public Observable() {
-        obs = new HashSet();
+        obs = new HashSet<Observer>();
     }
 
     /**

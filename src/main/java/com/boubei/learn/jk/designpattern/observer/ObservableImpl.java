@@ -11,11 +11,10 @@ import java.util.Map;
  * @author Jon.King 2006-4-23
  * 
  */
-@SuppressWarnings("unchecked")
 public class ObservableImpl extends Observable {
 
     // 封装被观察的数据
-	private static  Map products= new HashMap(); // name/price 的产品列表
+	private static  Map<String, Double> products = new HashMap<String, Double>(); // name/price 的产品列表
 
     private float discount; //产品折扣
     

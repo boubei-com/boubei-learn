@@ -12,10 +12,9 @@ import java.util.List;
  * SoftwareComposite类对应于Composite类，并且是抽象类，所有可以包含子节点的类都扩展这个类。
  * 这个类的主要功能是用来存储子部件，实现了接口中的方法，部分可以重用的代码写在此类中
  */
-@SuppressWarnings("unchecked")
 public abstract class SoftwareComposite implements SoftwareComponent {
     
-	public List children = new ArrayList();
+	public List<SoftwareComponent> children = new ArrayList<SoftwareComponent>();
     
     public void addSoftwareComponent(SoftwareComponent s) {
         children.add(s);

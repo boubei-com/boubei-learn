@@ -1,7 +1,6 @@
 package com.boubei.learn.jk.designpattern.visitor;
 
 import java.util.Collection;
-import java.util.Iterator;
 
 import com.boubei.learn.jk.reflect.User;
 
@@ -14,12 +13,12 @@ import com.boubei.learn.jk.reflect.User;
  * 
  */
 public class PrintVisitor implements Visitor {
-    @SuppressWarnings("unchecked")
-	public void visitCollection(Collection collection) {
-        for (Iterator it = collection.iterator(); it.hasNext();) {
-            Object o = it.next();
-            if (o instanceof Visitable)
+	
+	public void visitCollection(Collection<Object> collection) {
+        for ( Object o : collection ) {
+            if (o instanceof Visitable) {
                 ((Visitable) o).accept(this);
+            }
         }
     }
 

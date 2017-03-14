@@ -1,7 +1,5 @@
 package com.boubei.learn.jk.designpattern.factory;
 
-import java.util.Arrays;
-import java.util.Iterator;
 
 /**
  * @author  Jon.King  2005-12-5
@@ -68,11 +66,10 @@ class _Square extends _Shape {
 }
 
 public class ShapeFactory1{
-	@SuppressWarnings("unchecked")
 	public static void main(String args[]) {
         String shlist[] = { "_Circle", "_Square"};       
-        for(Iterator it = Arrays.asList(shlist).iterator(); it.hasNext();){
-            _Shape s = (_Shape)_ShapeFactory.getInstance().create_Shape((String) it.next());
+        for(String shape : shlist){
+            _Shape s = (_Shape)_ShapeFactory.getInstance().create_Shape(shape);
             s.draw();
             s.erase();
         }

@@ -11,14 +11,13 @@ import com.boubei.learn.jk.reflect.User;
  * 
  * @author Jon.King 2006-4-25
  * 
- * 访问者接口
+ *         访问者接口
  * 
  */
 
-public interface Visitor // 访问者接口
-{
-	@SuppressWarnings("unchecked")
-	public void visitCollection(Collection collection);
+public interface Visitor {
+	
+	public void visitCollection(Collection<Object> collection);
 
 	public void visitString(String string);
 

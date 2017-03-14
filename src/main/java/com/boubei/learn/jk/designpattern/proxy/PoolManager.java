@@ -1,6 +1,7 @@
 package com.boubei.learn.jk.designpattern.proxy;
 
 import java.util.ArrayList;
+import java.util.List;
 
 /** 
  * <p> PoolManager.java </p> 
@@ -8,7 +9,6 @@ import java.util.ArrayList;
  * @author  Jon.King 2006-4-19
  *
  */
-@SuppressWarnings("unchecked")
 class PoolManager {
 	/**
 	 * 内部静态类，可以在没有enclosing class（外围类）的情况下单独存在，如Map中的Entry
@@ -53,7 +53,7 @@ class PoolManager {
 		}
 	}
 
-	private ArrayList poolItems = new ArrayList();
+	private List<PoolItem> poolItems = new ArrayList<PoolItem>();
 
 	public void add(Object item) {
 		poolItems.add(new PoolItem(item));
