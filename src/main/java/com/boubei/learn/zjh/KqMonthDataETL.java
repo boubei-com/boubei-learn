@@ -54,7 +54,7 @@ public class KqMonthDataETL {
 		//System.out.println( DateUtil.format(curDate) );
 		//System.out.println( ETLUtil.fetchJson(KqMonthDataETL.KQ_URL, params) );
 		
-		System.out.println( fetchJson(KqMonthDataETL.KQ_URL2, params) );
+		System.out.println( fetchJson(KqMonthDataETL.KQ_URL, params) );
 	}
 
 }
