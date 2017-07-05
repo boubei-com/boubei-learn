@@ -28,7 +28,7 @@ public class KqMonthDataETL {
 		}
 		postMethod.addParameter("Token", "BestFreightToken");
 		
-		System.out.println(postMethod);
+		//System.out.println(postMethod);
 		
 		// 最后生成一个HttpClient对象，并发出postMethod请求
 		HttpClient httpClient = new HttpClient();
