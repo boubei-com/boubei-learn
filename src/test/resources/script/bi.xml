@@ -27,5 +27,86 @@
 				   and t.created_time <= to_date('${param3}','yyyy-mm-dd')
 				 group by s.name
 		]]></sql>
+		<sql index="4"><![CDATA[
+			merge into B_SUB_TRANS_ORDER a
+using (select t.subcode,
+              s.code,
+              round(case when b.amount is null or b.amount = 0 then 0 else b.weight / b.amount end, 4) sub_weight,
+              round(case when b.amount is null or b.amount = 0 then 0 else b.actual_weight / b.amount end, 4) sub_actual_weight,
+              round(case when b.amount is null or b.amount = 0 then 0 else b.cubic / b.amount end,4) sub_cubic,
+              b.product_id,
+              z1.cid send_site_id,
+              z1.cparent_id center_in_id,
+              z2.cid disp_site_id,
+              z2.cparent_id center_out_id
+         from GT_SUB_TRANS_ORDER@p2 t,
+              gt_trans_order@p2     s,
+              gt_bill@p2            b,
+              gt_site_temp@ydn      z1,
+              gt_site_temp@ydn      z2
+        where t.trans_order_id = b.transorder_id
+          and t.trans_order_id = s.id
+          and b.send_site_id = z1.id
+          and b.disp_site_id = z2.id
+          and t.created_time >= to_date(?, 'yyyy-mm-dd')) b
+on (a.subcode = b.subcode)
+when matched then
+  update
+     set a.code              = b.code,
+         a.sub_weight        = b.sub_weight,
+         a.sub_actual_weight = b.sub_actual_weight,
+         a.sub_cubic         = b.sub_cubic,
+         a.product_id        = b.product_id,
+         a.send_site_id      = b.send_site_id,
+         a.center_in_id      = b.center_in_id,
+         a.disp_site_id      = b.disp_site_id,
+         a.center_out_id     = b.center_out_id
+when not matched then
+  insert
+    (subcode,
+     code,
+     sub_weight,
+     sub_actual_weight,
+     sub_cubic,
+     product_id,
+     send_site_id,
+     center_in_id,
+     disp_site_id,
+     center_out_id)
+  values
+    (b.subcode,
+     b.code,
+     b.sub_weight,
+     b.sub_actual_weight,
+     b.sub_cubic,
+     b.product_id,
+     b.send_site_id,
+     b.center_in_id,
+     b.disp_site_id,
+     b.center_out_id)
+		]]></sql>
+		<sql index="5"><![CDATA[
+			insert into B_SUB_TRANS_ORDER 
+select t.subcode,
+              s.code,
+              round(case when b.amount is null or b.amount = 0 then 0 else b.weight / b.amount end, 4) sub_weight,
+              round(case when b.amount is null or b.amount = 0 then 0 else b.actual_weight / b.amount end, 4) sub_actual_weight,
+              round(case when b.amount is null or b.amount = 0 then 0 else b.cubic / b.amount end,4) sub_cubic,
+              b.product_id,
+              z1.cid send_site_id,
+              z1.cparent_id center_in_id,
+              z2.cid disp_site_id,
+              z2.cparent_id center_out_id
+         from GT_SUB_TRANS_ORDER@p2 t,
+              gt_trans_order@p2     s,
+              gt_bill@p2            b,
+              gt_site_temp@ydn      z1,
+              gt_site_temp@ydn      z2
+        where t.trans_order_id = b.transorder_id
+          and t.trans_order_id = s.id
+          and b.send_site_id = z1.id
+          and b.disp_site_id = z2.id
+          and t.subcode= ? 
+		]]></sql>
 	</report>
 </reports>

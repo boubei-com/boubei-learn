@@ -67,6 +67,17 @@
     <customizerClass>com.boubei.tss.modules.log.LogOutputTaskPoolCustomizer</customizerClass>  
     <accessMethod>3</accessMethod>  
   </strategy> 
+  <strategy code="ds-xjy" name="DB连接池-新纪元"> 
+    <poolClass>com.boubei.tss.cache.ReusablePool</poolClass>  
+    <poolSize>10</poolSize>  
+    <cyclelife>3600000</cyclelife>  
+    <interruptTime>1000</interruptTime>  
+    <initNum>0</initNum>  
+    <disabled>0</disabled>
+	<visible>1</visible>  
+    <customizerClass>com.boubei.tss.framework.persistence.connpool.ConnPoolCustomizer</customizerClass>  
+    <paramFile>oracle.jdbc.driver.OracleDriver,jdbc:oracle:thin:@(DESCRIPTION=(ADDRESS=(PROTOCOL=TCP)(HOST=kybidb3.800best.com)(PORT=1521))(CONNECT_DATA=(SERVER=DEDICATED)(SERVICE_NAME=kybidb3))),usr_vf,orausr_vf</paramFile>
+  </strategy>
   
   <strategy code="SHORTER" name="数据缓存（3分钟）"> 
     <poolClass>com.boubei.tss.cache.ObjectPool</poolClass>  
