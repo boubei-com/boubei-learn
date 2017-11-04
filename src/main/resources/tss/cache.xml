@@ -21,7 +21,7 @@
     <disabled>0</disabled>
 	<visible>1</visible>  
     <customizerClass>com.boubei.tss.framework.persistence.connpool.ConnPoolCustomizer</customizerClass>  
-    <paramFile>com.mysql.jdbc.Driver,jdbc:mysql://10.9.45.68:3306/btrbi,root,800best@com</paramFile>
+    <paramFile>com.mysql.jdbc.Driver,jdbc:mysql://10.8.122.68:3306/btrbi,root,800best@com</paramFile>
   </strategy>
   <strategy code="ds-wm" name="DB连接池-MySQL-WM"> 
     <poolClass>com.boubei.tss.cache.ReusablePool</poolClass>  
@@ -32,7 +32,7 @@
     <disabled>0</disabled>
 	<visible>1</visible>  
     <customizerClass>com.boubei.tss.framework.persistence.connpool.ConnPoolCustomizer</customizerClass>  
-    <paramFile>com.mysql.jdbc.Driver,jdbc:mysql://10.9.45.66:3306/wanma_bk,root,800best@com</paramFile>
+    <paramFile>com.mysql.jdbc.Driver,jdbc:mysql://10.8.122.66:3306/wanma_bk,root,800best@com</paramFile>
   </strategy>
   <strategy code="ds-ydn" name="DB连接池-雅典娜"> 
     <poolClass>com.boubei.tss.cache.ReusablePool</poolClass>  
