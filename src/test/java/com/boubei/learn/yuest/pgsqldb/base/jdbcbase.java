@@ -12,7 +12,7 @@ import java.sql.Statement;
  * 
  */
 public class Jdbcbase {
-	static String url="jdbc:postgresql://192.168.163.141:5432/postgres";
+	static String url="jdbc:postgresql://192.168.163.139:5432/postgres";
 	static String usr="postgres";
 	static String psd="postgresql.open";
 
