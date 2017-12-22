@@ -11,8 +11,8 @@ import java.sql.Statement;
  * 需要在整个工程下右键属性->java building path ->add external jars->导入相应的数据库驱动包
  * 
  */
-public class jdbcbase {
-	static String url="jdbc:postgresql://localhost:5432/postgres";
+public class Jdbcbase {
+	static String url="jdbc:postgresql://192.168.163.141:5432/postgres";
 	static String usr="postgres";
 	static String psd="postgresql.open";
 
@@ -50,13 +50,14 @@ public class jdbcbase {
 		
 		//执行语句
 		//驱动会将结果包装成一个二维表格
-		rs= st.executeQuery("select * from public.employees");
-		
+		rs= st.executeQuery("select * from public.emp");
+//		rs= st.executeQuery("select * from public.employees");
 		//处理结果(next相当于向下按记录移动）
 		while(rs.next()){
 			//getObject 重载方法有两个根据行id来取得对象，根据列名来取得对象。
-			System.out.println(rs.getObject(1)+"\t"+rs.getObject(2)+"\t"+
-					rs.getObject(3)+"\t"+rs.getObject(4)+"\t"+rs.getObject(5));
+			System.out.println(rs.getObject(1));
+					//+"\t"+rs.getObject(2)+"\t"+
+					//rs.getObject(3)+"\t"+rs.getObject(4)+"\t"+rs.getObject(5));
 		}
 		
 		//6释放资源
