@@ -68,7 +68,11 @@ public class StringTest {
         } else {
             System.out.println("str11   !=   str22 ");
         }
-        //打印结果是   str11   ==   str22       
+        //打印结果是   str11   ==   str22    
+        
+        System.out.println( "//tss/tssbi.html".replaceFirst("//", "/") );
+        
+        System.out.println( "123X".matches("[0-9]+") );
     }
 }
 
