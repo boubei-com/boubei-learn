@@ -12,6 +12,7 @@ public class PostgresSQLTest {
 	static String pwd = "boubei@com";
 
 	public static void main(String[] args) throws Exception {
+		
 		Connection conn = getConnection();
 		Statement st = conn.createStatement();
 		
@@ -35,12 +36,15 @@ public class PostgresSQLTest {
 		st.execute("ALTER TABLE user_tbl ALTER  signup_date SET NOT NULL");
 		st.execute("ALTER TABLE user_tbl RENAME signup_date TO signup");
 		st.execute("ALTER TABLE user_tbl ADD email VARCHAR(40)");
-		st.execute("ALTER TABLE user_tbl DROP COLUMN email");
 		
-		rs = st.executeQuery("SELECT * FROM user_tbl");
+		st.execute("INSERT INTO user_tbl(name, signup, email) VALUES('王五', '2013-11-11', 'bb@163.com');");
+		
+		rs = st.executeQuery("SELECT * FROM user_tbl limit 2 offset 1");
 		while(rs.next()) {
-			System.out.println( rs.getString("name") + "  " + rs.getObject("signup") );
+			System.out.println( rs.getString("name") + "  " + rs.getObject("signup") + "  " + rs.getObject("email") );
 		}
+		
+		st.execute("ALTER TABLE user_tbl DROP COLUMN email");
 		st.execute("DELETE FROM user_tbl WHERE name = '李四'");
 	}
 	
@@ -48,7 +52,6 @@ public class PostgresSQLTest {
 		Connection conn = null;
         try {
             Class.forName("org.postgresql.Driver");
-            DriverManager.setLoginTimeout(30);
 			conn = DriverManager.getConnection(url, user, pwd);
         } 
         catch (Exception e) {
