@@ -1,13 +1,22 @@
 package com.boubei.learn.yuest.pgsqldb.optimizing;
 
-public class JdbcUtils {
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
 
-	/**
-	 * @param args
-	 */
-	public static void main(String[] args) {
-		// TODO Auto-generated method stub
-//		private
+public final class JdbcUtils {
+	//??
+	private JdbcUtils(){
+		
 	}
-
+	static {
+		try{
+			Class.forName("org.postgresql.Driver");
+		}catch(ClassNotFoundException e){
+			e.printStackTrace();
+		}
+	}
+	
 }
