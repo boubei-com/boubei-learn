@@ -7,7 +7,7 @@ import java.sql.Statement;
 
 public class SQLServerTest {
 	static String driver = "com.microsoft.sqlserver.jdbc.SQLServerDriver";
-	static String url = "jdbc:sqlserver://192.168.0.133:1433;databaseName=test";
+	static String url = "jdbc:sqlserver://192.168.0.136:1433;databaseName=test";
 	static String user = "sa";
 	static String pwd = "sqlserver.open";
 
@@ -21,7 +21,9 @@ public class SQLServerTest {
 		st.execute("INSERT INTO user_tbl(name, signup_date) VALUES('张三', '2013-12-22');");
 		st.execute("ALTER TABLE user_tbl ADD CONSTRAINT name_unique UNIQUE (name)");
 		st.execute("ALTER TABLE user_tbl DROP CONSTRAINT name_unique");
-		st.execute("INSERT INTO user_tbl(name, signup_date) VALUES('张三', '2013-12-22');");
+		//st.execute("INSERT INTO user_tbl(name, signup_date) VALUES('张三', '2013-12-22');");
+		st.execute("CREATE unique INDEX name_index on user_tbl (name)");
+		st.execute("DROP INDEX user_tbl.name_index");
 		
 		ResultSet rs = st.executeQuery("SELECT * FROM user_tbl");
 		while(rs.next()) {

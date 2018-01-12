@@ -1,12 +1,6 @@
 package com.boubei.learn.yuest.java;
 
 /**
-*
-*
-* @author beanlam
-* @date 2016年3月9日 下午11:26:20
-* @version 1.0
-*
 */
 public class SimpleCRSort {
    public static void insertionSort(final int[] array) {
