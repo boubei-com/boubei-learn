@@ -3,6 +3,7 @@ package com.boubei.learn.jk.postgresql;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
+import java.sql.ResultSetMetaData;
 import java.sql.Statement;
 
 public class PostgresSQLTest {
@@ -43,6 +44,18 @@ public class PostgresSQLTest {
 		while(rs.next()) {
 			System.out.println( rs.getString("name") + "  " + rs.getObject("signup") + "  " + rs.getObject("email") );
 		}
+		
+		ResultSetMetaData md = rs.getMetaData();
+		System.out.println(md.getColumnClassName(1));
+		System.out.println(md.getColumnDisplaySize(1));
+		System.out.println(md.getColumnLabel(1));
+		System.out.println(md.getColumnName(1));
+		System.out.println(md.getColumnType(1));
+		System.out.println(md.getColumnTypeName(1));
+		System.out.println(md.getPrecision(1));
+		System.out.println(md.getScale(1));
+		System.out.println(md.getSchemaName(1));
+		System.out.println(md.getTableName(1));
 		
 		st.execute("ALTER TABLE user_tbl DROP COLUMN email");
 		st.execute("DELETE FROM user_tbl WHERE name = '李四'");
