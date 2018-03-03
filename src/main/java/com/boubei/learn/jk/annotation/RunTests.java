@@ -1,6 +1,6 @@
 package com.boubei.learn.jk.annotation;
 
-import java.lang.reflect.*;
+import java.lang.reflect.Method;
 
 /**
  * 遍历Foo类的所有方法，尝试调用其中被上面的测试annotation类型标注过的方法。

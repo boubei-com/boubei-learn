@@ -2,7 +2,6 @@ package com.boubei.learn.hank.networkscheduling;
 
 import java.util.ArrayList;
 import java.util.List;
-import com.boubei.learn.hank.networkscheduling.Truck;
 
 // 网点
 public class Site {

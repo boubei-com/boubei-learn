@@ -7,8 +7,8 @@ package com.boubei.learn.jk.thread;
  * 
  * @author Jon.King Created [2006-5-23 12:43:28]
  */
-import java.util.*;
 import java.text.SimpleDateFormat;
+import java.util.Date;
 
 public class TestThread extends Thread {
     private static Integer threadCounterLock; // 用于同步，防止数据被写乱

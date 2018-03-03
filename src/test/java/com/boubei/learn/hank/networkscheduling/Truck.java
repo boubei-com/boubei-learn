@@ -1,7 +1,5 @@
 package com.boubei.learn.hank.networkscheduling;
 
-import com.boubei.learn.hank.networkscheduling.Site;
-import com.boubei.learn.hank.networkscheduling.Wave;
 
 // 网点班车
 public class Truck {
