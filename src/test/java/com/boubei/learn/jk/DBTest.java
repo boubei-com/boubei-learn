@@ -5,7 +5,7 @@ import java.util.Map;
 
 import org.junit.Test;
 
-import com.boubei.tss.dm.data.sqlquery.SQLExcutor;
+import com.boubei.tss.dm.dml.SQLExcutor;
 import com.boubei.tss.um.entity.User;
 
 public class DBTest {
