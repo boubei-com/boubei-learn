@@ -44,7 +44,8 @@ public class SimpleCRSort {
        }
    }
     
-   private static void swap(final int[] array, final int left, final int right) {
+   @SuppressWarnings("unused")
+private static void swap(final int[] array, final int left, final int right) {
        int temp = array[left];
        array[left] = array[right];
        array[right] = temp;
