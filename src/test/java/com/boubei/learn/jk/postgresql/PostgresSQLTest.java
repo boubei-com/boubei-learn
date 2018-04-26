@@ -19,20 +19,26 @@ public class PostgresSQLTest {
 		
 		st.execute("DROP TABLE IF EXISTS user_tbl");
 		
-		st.execute("CREATE TABLE user_tbl(name VARCHAR(20), signup_date DATE);");
-		st.execute("INSERT INTO user_tbl(name, signup_date) VALUES('张三', '2013-12-22');");
+		st.execute("CREATE TABLE user_tbl(name VARCHAR(20), signup_date DATE, age int, weight float);");
+		st.execute("INSERT INTO user_tbl(name, signup_date, age, weight) VALUES('张三', '2013-12-22', 12, 60.2);");
 		
 		ResultSet rs = st.executeQuery("SELECT * FROM user_tbl");
 		while(rs.next()) {
-			System.out.println( rs.getString("name") + "  " + rs.getObject("signup_date") );
+			System.out.println( rs.getString("name") + "  " + rs.getObject("signup_date")  
+					+ "  " + rs.getObject("age") + "  " + rs.getObject("weight")  );
 		}
 		
 		st.execute("UPDATE user_tbl set name = '李四' WHERE name = '张三';");
 		
 		rs = st.executeQuery("SELECT * FROM user_tbl");
 		while(rs.next()) {
-			System.out.println( rs.getString("name") + "  " + rs.getObject("signup_date") );
+			System.out.println( rs.getString("name") + "  " + rs.getObject("signup_date")  
+					+ "  " + rs.getObject("age") + "  " + rs.getObject("weight")  );
 		}
+		
+		st.execute("ALTER TABLE user_tbl ALTER  signup_date TYPE  VARCHAR(20) ");
+		st.execute("ALTER TABLE user_tbl ALTER  weight TYPE int ");
+//		st.execute("ALTER TABLE user_tbl ALTER  age SET NOT NULL");
 		
 		st.execute("ALTER TABLE user_tbl ALTER  signup_date SET NOT NULL");
 		st.execute("ALTER TABLE user_tbl RENAME signup_date TO signup");
@@ -42,7 +48,8 @@ public class PostgresSQLTest {
 		
 		rs = st.executeQuery("SELECT * FROM user_tbl limit 2 offset 1");
 		while(rs.next()) {
-			System.out.println( rs.getString("name") + "  " + rs.getObject("signup") + "  " + rs.getObject("email") );
+			System.out.println( rs.getString("name") + "  " + rs.getObject("signup") + "  " + rs.getObject("email") 
+					+ "  " + rs.getObject("age") + "  " + rs.getObject("weight")  );
 		}
 		
 		ResultSetMetaData md = rs.getMetaData();
