@@ -7,6 +7,7 @@ import java.sql.Statement;
 
 public class SQLServerTest {
 	static String driver = "com.microsoft.sqlserver.jdbc.SQLServerDriver";
+
 	static String url = "jdbc:sqlserver://192.168.0.131:1433;databaseName=test1";
 	static String user = "sa";
 	static String pwd = "sqlserver.open";

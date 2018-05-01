@@ -1,10 +1,10 @@
-package com.boubei.learn.yuest;
+package com.boubei.learn.yuest.java;
 
 import static org.junit.Assert.*;
 
 import org.junit.Test;
 
-public class yuestTest {
+public class BaseJavaTest {
 
 	@Test
 	public void test() {

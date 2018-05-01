@@ -7,7 +7,7 @@ import java.sql.Statement;
 
 public class PostgresSQLTest {
 	
-	static String url = "jdbc:postgresql:///testdb";
+	static String url = "jdbc:postgresql://192.168.0.103:5432/testdb";
 	static String user = "postgres";
 	static String pwd = "postgresql.open";
 

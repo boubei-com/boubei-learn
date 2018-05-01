@@ -8,10 +8,10 @@ import java.util.Map;
 import org.apache.log4j.Logger;
 import org.codehaus.jackson.map.ObjectMapper;
 
-import com.boubei.tss.dm.data.sqlquery.SQLExcutor;
+import com.boubei.tss.dm.ddl._Database;
+import com.boubei.tss.dm.dml.SQLExcutor;
 import com.boubei.tss.dm.record.Record;
 import com.boubei.tss.dm.record.RecordService;
-import com.boubei.tss.dm.record.ddl._Database;
 import com.boubei.tss.framework.Global;
 
 public class KQDataETL {

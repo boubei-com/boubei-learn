@@ -19,17 +19,18 @@
 		<dependency>
 			<groupId>com.boubei</groupId>
 			<artifactId>tss</artifactId>
-			<version>4.1</version>
+			<version>4.4</version>
 			<classifier>all</classifier>
 		</dependency>	
 
 		<!-- BASE dependency -->
-		<!-- Oracle DB driver 4 release -->
+		<!-- Oracle DB driver 4 release
 		<dependency>
 			<groupId>ojdbc</groupId>
 			<artifactId>ojdbc</artifactId>
 			<version>14</version>
 		</dependency>
+		 -->
 		
 		<!-- https://mvnrepository.com/artifact/org.postgresql/postgresql -->
 		<dependency>

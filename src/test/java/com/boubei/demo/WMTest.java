@@ -6,8 +6,8 @@ import java.util.Map;
 
 import org.junit.Test;
 
-import com.boubei.tss.dm.data.sqlquery.SQLExcutor;
-import com.boubei.tss.dm.data.sqlquery.SqlConfig;
+import com.boubei.tss.dm.dml.SQLExcutor;
+import com.boubei.tss.dm.dml.SqlConfig;
 import com.boubei.tss.util.EasyUtils;
 
 public class WMTest {
