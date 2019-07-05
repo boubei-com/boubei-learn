@@ -19,7 +19,7 @@
 		<dependency>
 			<groupId>com.boubei</groupId>
 			<artifactId>tss</artifactId>
-			<version>4.4</version>
+			<version>4.9</version>
 			<classifier>all</classifier>
 		</dependency>	
 

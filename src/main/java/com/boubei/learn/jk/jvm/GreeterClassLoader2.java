@@ -73,7 +73,6 @@ public class GreeterClassLoader2 extends ClassLoader {
                 c = bis.read();
             }
         }catch(IOException e){
-            return null;
         }try {
 			bis.close();
 		} catch (IOException e) {
